@@ -34,7 +34,7 @@ type RollingWindow struct {
 	broke         bool
 	size          int
 	buckets       []*Bucket
-	reqThreshold  int     // 限流QPS
+	reqThreshold  int     // 出发熔断的总请求阈值
 	failThreshold float64 // 失败率熔断阈值
 	lastBrokeTime time.Time
 	brokeTimeGap  time.Duration
