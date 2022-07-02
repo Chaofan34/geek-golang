@@ -26,6 +26,7 @@ func TestServerLife(t *testing.T) {
 		return serveDebug(ctx)
 	})
 
+	time.Sleep(time.Minute * 1)
 	c := make(chan os.Signal)
 	signal.Notify(c, syscall.SIGQUIT, syscall.SIGINT)
 	g.Go(func() error {

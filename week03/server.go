@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -38,10 +39,11 @@ func serve(addr string, handler http.Handler, ctx context.Context) error {
 	}()
 
 	// # mock start failed
-	// if strings.Contains(addr, "8080") {
-	// 	return fmt.Errorf("server %v start err", addr)
-	// }
+	if strings.Contains(addr, "8080") {
+		return fmt.Errorf("server %v start err", addr)
+	}
 
 	time.Sleep(time.Second)
+	log.Printf("serve listenAndServer!!!!, %v\n", addr)
 	return s.ListenAndServe()
 }
